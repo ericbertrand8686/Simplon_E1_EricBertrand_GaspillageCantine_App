@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Prédiction des repas</h2>
+  <p>Obtenu pour la journée selectionnée:</p>
+  <ul>
+    <li><strong>Date de fréquentation sélectionnée :</strong> {{ date1 }}</li>
+    <li><strong>Prédiction du nombre d'entrées :</strong> {{ freq1 }}</li>
+  </ul>
+
+  <form action="{% url 'store_pred' %}" method="POST">{% csrf_token %}
+    <input
+      type="hidden"
+      id="date"
+      name="date"
+      value="{{ date1 }}" />
+    <input
+      type="hidden"
+      id="pred"
+      name="pred"
+      value={{ freq1 }} />
+    <br>
+    <input type="submit" value="Enregistrer" />
+  </form>
+
+{% endblock %}

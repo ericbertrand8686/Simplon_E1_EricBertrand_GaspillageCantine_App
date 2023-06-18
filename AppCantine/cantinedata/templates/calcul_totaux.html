@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Calcul des totaux manquants</h2>
+  <p>Obtenu pour la journée selectionnée:</p>
+  <ul>
+    <li><strong>Nombres de totaux manquants :</strong> {{ NoneCount1 }}</li>
+    <li><strong>Nombres de totaux calculés :</strong> {{ CalcCount1 }}</li>
+  </ul>
+
+  {% if predfilt1 %}
+  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Prediction</th>
+            <th>Calculé</th>
+            <th>Manuel</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      {% for pred in predfilt1 %}
+        <tr>
+            <td>{{ pred.date }}</td>
+            <td>{{ pred.total_modele }}</td>
+            <td>{{ pred.total_calcul }}</td>
+            <td>{{pred.total_manuel}}</td>
+        </tr>
+      {% endfor %}       
+    </tbody>
+
+  </table>
+
+    {% else %}
+        <p>On ne trouve pas de totaux à mettre à jour dans la table pour le moment</p>
+    {% endif %}
+
+    {% endblock %}

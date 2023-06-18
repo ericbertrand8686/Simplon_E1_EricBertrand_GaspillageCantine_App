@@ -32,7 +32,12 @@ urlpatterns += [
 from django.views.generic import RedirectView
 urlpatterns += [
     path('', RedirectView.as_view(url='cantinedata/', permanent=True)),
-    path('cantinedata/', include('cantinedata.urls')),
+]
+
+# Add Django site authentication urls (for login, logout, password management)
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # Use static() to add URL mapping to serve static files during development (only)

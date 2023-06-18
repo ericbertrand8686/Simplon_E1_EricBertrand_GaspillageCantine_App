@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Date de prédiction</h2>
+  <p>Choisissez une date sur le calendrier:</p>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- XDSoft DateTimePicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
+
+
+    <form action="{% url 'show_pred' %}" method="POST">{% csrf_token %}
+        <div>
+          <label for="example">Veuillez saisir une date</label>
+          <input name="datetimepicker" id="datetimepicker" type="text">
+        </div>
+        <br>
+        <div>
+          <input type="submit" value="Envoyer">
+        </div>
+      </form>
+
+
+    <script>
+        jQuery.datetimepicker.setLocale('fr');
+        $(function () {
+        $("#datetimepicker").datetimepicker({
+            minDate:'2011-01-03',
+            yearStart: 2011,
+            timepicker:false,
+            format:'d.m.Y',
+            dayOfWeekStart: 1,
+            disabledWeekDays: [0,3,6],
+        });
+        });
+    </script>
+
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Frequentation List</h1>
+  {% if freq_list %}
+    <ul>
+      {% for freq in freq_list %}
+      <li>
+        <a href="{{ freq.nom_site }}">{{ freq.nom_site }} : {{ freq.date }} --> {{freq.reel}}</a>
+        ({{freq.reel}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no Frequentations in the table</p>
+  {% endif %}
+{% endblock %}

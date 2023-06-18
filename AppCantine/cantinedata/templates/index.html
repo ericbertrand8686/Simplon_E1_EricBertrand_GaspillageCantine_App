@@ -1,17 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Local Library Home</h1>
-  <p>
-    Welcome to LocalLibrary, a website developed by
-    <em>Mozilla Developer Network</em>!
-  </p>
-  <h2>Dynamic content</h2>
-  <p>The library has the following record counts:</p>
+  <h2>Récapitulatif des données</h2>
+  <p>obtenu de la base de données des fréquentations:</p>
   <ul>
-    <li><strong>Frequentation rows:</strong> {{ num_books }}</li>
-    <li><strong>Distinct days:</strong> {{ num_instances }}</li>
-    <li><strong>Distinct names:</strong> {{ num_instances_available }}</li>
-    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Nombre d'entrées de fréquentations:</strong> {{ num_freqs }}</li>
+    <li><strong>Nombre total de repas servis:</strong> {{ num_reel }}</li>
+    <li><strong>Nombre de dates distinctes:</strong> {{ num_dates }}</li>
+    <li><strong>Nombre de sites distincts:</strong> {{ num_noms }}</li>
   </ul>
 {% endblock %}
+
